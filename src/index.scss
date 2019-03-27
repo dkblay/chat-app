@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #EDF7F5;
+
+}
+
+.chat {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  top: 20px;
+  height: calc(100vh - 100px);
+
+  &__users {
+    flex: 30%;
+    background: #fff;
+    border: 1px solid #B7D7D8;
+  }
+
+  &__user {
+    height: 72px;
+    border-bottom: 1px solid #B7D7D8;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+
+    &--active {
+      color: #FF8984;
+      background: #204E5F;
+      font-weight: 700;
+    }
+
+  }
+
+  &__area {
+    display: flex;
+    flex-direction: column;
+    flex: 70%;
+    background: rgba(0, 0, 0, 0.3);
+
+  }
+
+  &__content {
+    position: relative;
+    @include clearfix();
+  }
+
+  &__message {
+    max-width: 65%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #204E5F;
+    border-radius: 25px;
+    color: #fff;
+    float: right;
+    text-align: left;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: flex-end;
+    flex: 1 1 0;
+    position: relative;
+  }
+
+  &__container {
+    position: absolute;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    @include clearfix();
+
+  }
+
+
+
+  &__footer {
+    display: flex;
+    background: #B7D7D8;
+    min-height: 62px;
+
+  }
+}
+
+.footer {
+  flex: 1;
+  margin: 10px;
+  border-radius: 20px;
+  background: #fff;
+  padding: 9px 12px 11px 12px;
+
+  &__input {
+    outline: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 100px;
+    min-height: 20px;
+    line-height: 20px;
+    width: 100%;
+    text-align: left;
+  }
+}
